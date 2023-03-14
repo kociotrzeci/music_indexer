@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="music indexer" options="--add-exports java.desktop/javax.sound=ALL-UNNAMED" />
-    </option>
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="untitled" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="music_indexer" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

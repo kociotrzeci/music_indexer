@@ -1,3 +1,6 @@
+import com.mpatric.mp3agic.InvalidDataException;
+import com.mpatric.mp3agic.UnsupportedTagException;
+import org.apache.commons.io.FilenameUtils;
 import java.io.*;
 import java.util.*;
 
@@ -7,34 +10,40 @@ public class ScanFolder {
     private ArrayList<MusicFile> fileTable = new ArrayList<MusicFile>();
     private ArrayList<MusicDirectory> directoryTable = new ArrayList<MusicDirectory>();
 
-    ScanFolder(String directory) {
+    ScanFolder(String directory) throws InvalidDataException, UnsupportedTagException, IOException {
         this.directory = directory;
         ListFiles(directory);
     }
 
-    void ListFiles(String directory) {
+    void ListFiles(String directory) throws InvalidDataException, UnsupportedTagException, IOException {
         File localisation = new File(directory);
         File[] listOfFiles = localisation.listFiles();
         //listOfFiles = null;
-        try {
+
             for (File i : listOfFiles) {
                 if (i.isDirectory()) {
-                    ListFiles(i.getPath());
                     directoryTable.add(new MusicDirectory(i.getPath()));
-                } else fileTable.add(new MusicFile(i.getPath()));
+                    ListFiles(i.getPath());
+                } else {
+                    if( isMp3(i.getPath())) {
+                        fileTable.add(new MusicFile(i.getPath()));
+                    }
+                }
+
             }
-        }catch(Exception e){
-            System.out.println("directory is empty");
         }
-
-    }
-
-    //MusicFile[] dupa = fileTable.toArray(new MusicFile[0]);
     MusicFile[] getFileTable() {
         return fileTable.toArray(new MusicFile[0]);
     }
 
     MusicDirectory[] getDirectoryTable() {
         return directoryTable.toArray(new MusicDirectory[0]);
+    }
+    private boolean isMp3(String directory)
+    {
+        if (Objects.equals(FilenameUtils.getExtension(directory), "mp3"))
+            return true;
+        else
+            return false;
     }
 }

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/music indexer.iml" filepath="$PROJECT_DIR$/music indexer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/music_indexer.iml" filepath="$PROJECT_DIR$/music_indexer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/untitled.iml" filepath="$PROJECT_DIR$/untitled.iml" />
     </modules>
   </component>
 </project>
