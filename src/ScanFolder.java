@@ -22,11 +22,11 @@ public class ScanFolder {
 
             for (File i : listOfFiles) {
                 if (i.isDirectory()) {
-                    directoryTable.add(new MusicDirectory(i.getPath()));
+                    directoryTable.add(new MusicDirectory(i.getAbsolutePath()));
                     ListFiles(i.getPath());
                 } else {
                     if( isMp3(i.getPath())) {
-                        fileTable.add(new MusicFile(i.getPath()));
+                        fileTable.add(new MusicFile(i.getAbsolutePath()));
                     }
                 }
 

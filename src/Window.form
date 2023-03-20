@@ -99,14 +99,18 @@
       <hspacer id="299ff">
         <constraints border-constraint="East"/>
       </hspacer>
-      <scrollpane id="51f8d">
+      <scrollpane id="eb01d">
         <constraints border-constraint="Center"/>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="94fd" class="javax.swing.JTable" binding="table1" default-binding="true">
+          <component id="4ef92" class="javax.swing.JTable" binding="table1" default-binding="true">
             <constraints/>
-            <properties/>
+            <properties>
+              <autoCreateRowSorter value="true"/>
+              <cellSelectionEnabled value="true"/>
+              <minimumSize width="-1" height="-1"/>
+            </properties>
           </component>
         </children>
       </scrollpane>
