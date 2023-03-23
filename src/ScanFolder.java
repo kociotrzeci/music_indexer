@@ -18,7 +18,10 @@ public class ScanFolder {
     void ListFiles(String directory) throws InvalidDataException, UnsupportedTagException, IOException {
         File localisation = new File(directory);
         File[] listOfFiles = localisation.listFiles();
-        //listOfFiles = null;
+        if (listOfFiles.length == 0)
+        {
+            
+        }
 
             for (File i : listOfFiles) {
                 if (i.isDirectory()) {

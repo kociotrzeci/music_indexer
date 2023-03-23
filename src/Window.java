@@ -9,20 +9,34 @@ public class Window {
     private JButton STARTButton;
     private JButton SAVEButton;
     private JTable table1;
-
-
+    private JTextField textField1;
+    JFileChooser chooser;
 
     public Window() {
         browseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("BROWSE");
+                chooser = new JFileChooser();
+                chooser.setCurrentDirectory(new java.io.File("."));
+                chooser.setDialogTitle("choosertitle");
+                chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+                chooser.setAcceptAllFileFilterUsed(false);
+                if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+                    System.out.println("getSelectedFile() : "
+                            +  chooser.getSelectedFile());
+                    setTextField1(chooser.getSelectedFile().getAbsolutePath());
+
+                }
+                else {
+                    System.out.println("No Selection ");
+                }
             }
+
         });
         STARTButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main.passTable();
+                Main.index(textField1.getText());
             }
 
         });
@@ -31,11 +45,14 @@ public class Window {
     }
     public void setTable(String[][] table)
     {
-        String[] heading = {"kk","ss","fa","dsd","sdfsd"};
+        String[] heading = {"Directory","Bitrate","fa","dsd","sdfsd"};
         DefaultTableModel tempTab = new DefaultTableModel(table,heading);
         this.table1.setModel(tempTab);
     }
-
+    public void setTextField1(String direcotry)
+    {
+        this.textField1.setText(direcotry);
+    }
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }

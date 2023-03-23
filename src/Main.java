@@ -5,10 +5,40 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class Main {
-    String column[] = {"Directory", "Bitrate"};
-
-    public static void main(String[] args) throws InvalidDataException, UnsupportedTagException, IOException {
-        ScanFolder synth = new ScanFolder("SYNTHPOP");
+    static Window pane;
+    public static void main(String[] args) {
+        for(UIManager.LookAndFeelInfo i : UIManager.getInstalledLookAndFeels())
+            System.out.println(i.getClassName());
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        } catch (UnsupportedLookAndFeelException e) {
+            throw new RuntimeException(e);
+        }
+        //new TableExample();
+        JFrame window = new JFrame();
+        pane = new Window();
+        window.setContentPane(pane.general);
+        window.setVisible(true);
+        window.setSize(1200, 600);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    public static void index(String directory) {
+        ScanFolder synth = null;
+        try {
+            synth = new ScanFolder(directory);
+        } catch (InvalidDataException e) {
+            throw new RuntimeException(e);
+        } catch (UnsupportedTagException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         MusicFile[] listOfFiles = synth.getFileTable();
         String[][] table = new String[listOfFiles.length][listOfFiles[0].getString().length];
         MusicDirectory[] listOfDirectories = synth.getDirectoryTable();
@@ -21,23 +51,10 @@ public class Main {
         System.out.println("------DIRECTORIES-------");
         for (MusicDirectory i : listOfDirectories) {
             System.out.println(i.getDirectory());
-        }
-        //new TableExample();
 
-        JFrame window = new JFrame();
-        Window pane = new Window();
-        window.setContentPane(pane.general);
-        window.setVisible(true);
-        window.setSize(1200, 600);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        }
         pane.setTable(table);
 
-
-
-
-    }
-    public static void passTable() {
-        int i = 0;
     }
 
 
