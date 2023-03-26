@@ -11,13 +11,8 @@ public class Main {
             System.out.println(i.getClassName());
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        } catch (UnsupportedLookAndFeelException e) {
+        } catch (ClassNotFoundException | UnsupportedLookAndFeelException | IllegalAccessException |
+                 InstantiationException e) {
             throw new RuntimeException(e);
         }
         //new TableExample();
@@ -29,14 +24,10 @@ public class Main {
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     public static void index(String directory) {
-        ScanFolder synth = null;
+        ScanFolder synth;
         try {
             synth = new ScanFolder(directory);
-        } catch (InvalidDataException e) {
-            throw new RuntimeException(e);
-        } catch (UnsupportedTagException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (InvalidDataException | IOException | UnsupportedTagException e) {
             throw new RuntimeException(e);
         }
         MusicFile[] listOfFiles = synth.getFileTable();
@@ -51,7 +42,6 @@ public class Main {
         System.out.println("------DIRECTORIES-------");
         for (MusicDirectory i : listOfDirectories) {
             System.out.println(i.getDirectory());
-
         }
         pane.setTable(table);
 

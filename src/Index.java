@@ -1,8 +1,8 @@
 import javax.swing.*;
 
 public class Index extends SwingWorker {
-    private JFrame window;
-    private String directory;
+    private final JFrame window;
+    private final String directory;
     static ScanProgress pane;
     public Index(String directory){
         this.directory = directory;
@@ -15,7 +15,7 @@ public class Index extends SwingWorker {
     }
 
     @Override
-    protected Object doInBackground() throws Exception {
+    protected Object doInBackground() {
         Main.index(directory);
         return null;
     }

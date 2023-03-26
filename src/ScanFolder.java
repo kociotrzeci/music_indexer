@@ -4,17 +4,14 @@ import org.apache.commons.io.FilenameUtils;
 import java.io.*;
 import java.util.*;
 
-
 public class ScanFolder {
-    private final String directory;
-    private ArrayList<MusicFile> fileTable = new ArrayList<MusicFile>();
-    private ArrayList<MusicDirectory> directoryTable = new ArrayList<MusicDirectory>();
+    private final ArrayList<MusicFile> fileTable = new ArrayList<>();
+    private final ArrayList<MusicDirectory> directoryTable = new ArrayList<>();
     private int count;
     private int current;
     ScanFolder(String directory) throws InvalidDataException, UnsupportedTagException, IOException {
         this.count = 0;
         this.current = 0;
-        this.directory = directory;
         countFiles(directory);
         listFiles(directory);
     }
@@ -37,12 +34,9 @@ public class ScanFolder {
                 }
             }
         }
-    void countFiles(String directory) throws InvalidDataException, UnsupportedTagException, IOException {
+    void countFiles(String directory) {
         File localisation = new File(directory);
         File[] listOfFiles = localisation.listFiles();
-        if (listOfFiles.length == 0)
-        {
-        }
         for (File i : listOfFiles) {
             if (i.isDirectory()) {
                 directoryTable.add(new MusicDirectory(i.getAbsolutePath()));
@@ -63,9 +57,6 @@ public class ScanFolder {
     }
     private boolean isMp3(String directory)
     {
-        if (Objects.equals(FilenameUtils.getExtension(directory), "mp3"))
-            return true;
-        else
-            return false;
+        return Objects.equals(FilenameUtils.getExtension(directory), "mp3");
     }
 }

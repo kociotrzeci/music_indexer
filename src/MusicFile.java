@@ -1,11 +1,9 @@
 
 import com.mpatric.mp3agic.*;
-
 import java.io.IOException;
-import java.util.Arrays;
 
 public class MusicFile {
-    private String[] prasedString;
+    private final String[] prasedString;
 
     public String[] getString() {
         return (prasedString);
