@@ -5,38 +5,30 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class MusicFile {
-    private Mp3File file;
-    private String directory;
+    private String[] prasedString;
+
     public String[] getString() {
+        return (prasedString);
+    }
+
+    MusicFile(String directory) throws InvalidDataException, UnsupportedTagException, IOException {
+        Mp3File file = new Mp3File(directory);
         ID3v2 tagV2;
         ID3v1 tagV1;
-        String[] column = new String[5];
-        if (this.file.hasId3v2Tag()) {
+        this.prasedString = new String[5];
+        if (file.hasId3v2Tag()) {
             tagV2 = file.getId3v2Tag();
-            column[0] = tagV2.getArtist();
-            column[1] = tagV2.getAlbum();
-            column[2] = tagV2.getTitle();
-            column[3] = directory;
-            column[4] = Integer.toString(this.file.getBitrate());
-            return column;
+            this.prasedString[0] = tagV2.getArtist();
+            this.prasedString[1] = tagV2.getAlbum();
+            this.prasedString[2] = tagV2.getTitle();
+            this.prasedString[3] = directory;
+        } else {
+            this.prasedString[0] = " ";
+            this.prasedString[1] = " ";
+            this.prasedString[2] = " ";
+            this.prasedString[3] = " ";
         }
-
-        return (column);
-    }
-    MusicFile(String directory) throws InvalidDataException, UnsupportedTagException, IOException {
-        if (directory == "blank")
-            System.out.println("psujesz");
-        else
-            this.file = new Mp3File(directory);
-        this.directory = directory;
-    }
-    public Mp3File getFile() {
-        return file;
-    }
-    public String getDirectory() {
-        return directory;
-    }
-    public void print(){
-        System.out.println(Arrays.toString(this.getString()));
+        this.prasedString[4] = Integer.toString(file.getBitrate());
     }
 }
+

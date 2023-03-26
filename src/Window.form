@@ -103,7 +103,7 @@
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="Center"/>
         <properties/>
-        <border type="none"/>
+        <border type="none" title=""/>
         <children>
           <scrollpane id="92720">
             <constraints>
@@ -125,7 +125,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value=""/>
+              <text value="."/>
             </properties>
           </component>
           <vspacer id="4babe">
