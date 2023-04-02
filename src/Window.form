@@ -38,7 +38,7 @@
           </vspacer>
         </children>
       </grid>
-      <grid id="815d" layout-manager="GridLayoutManager" row-count="5" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="10">
+      <grid id="815d" layout-manager="GridLayoutManager" row-count="4" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="10" vgap="10">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="West"/>
         <properties/>
@@ -66,21 +66,13 @@
           </component>
           <hspacer id="fbb01">
             <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
                 <minimum-size width="10" height="-1"/>
                 <preferred-size width="10" height="-1"/>
                 <maximum-size width="10" height="-1"/>
               </grid>
             </constraints>
           </hspacer>
-          <component id="9e7dd" class="javax.swing.JButton" binding="SAVEButton" default-binding="true">
-            <constraints>
-              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="SAVE"/>
-            </properties>
-          </component>
           <vspacer id="b8ab7">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>

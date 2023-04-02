@@ -15,7 +15,6 @@ public class Main {
                  InstantiationException e) {
             throw new RuntimeException(e);
         }
-        //new TableExample();
         JFrame window = new JFrame();
         pane = new Window();
         window.setContentPane(pane.general);
@@ -23,19 +22,18 @@ public class Main {
         window.setSize(1200, 600);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    public static void index(String directory) {
-        ScanFolder synth;
+    public static void index(String localDirectory) {
+        ScanFolder folder;
         try {
-            synth = new ScanFolder(directory);
+            folder = new ScanFolder(localDirectory);
         } catch (InvalidDataException | IOException | UnsupportedTagException e) {
             throw new RuntimeException(e);
         }
-        MusicFile[] listOfFiles = synth.getFileTable();
+        MusicFile[] listOfFiles = folder.getFileTable();
         String[][] table = new String[listOfFiles.length][listOfFiles[0].getString().length];
-        MusicDirectory[] listOfDirectories = synth.getDirectoryTable();
+        MusicDirectory[] listOfDirectories = folder.getDirectoryTable();
         System.out.println("------FILES-------");
         for (int i = 0; i < listOfFiles.length;i++) {
-            //listOfFiles[i].print();
             table[i]= listOfFiles[i].getString();
             System.out.println(Arrays.toString(table[i]));
         }
@@ -44,8 +42,5 @@ public class Main {
             System.out.println(i.getDirectory());
         }
         pane.setTable(table);
-
     }
-
-
 }

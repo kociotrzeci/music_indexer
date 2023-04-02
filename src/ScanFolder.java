@@ -25,10 +25,10 @@ public class ScanFolder {
                 if (i.isDirectory()) {
                     directoryTable.add(new MusicDirectory(i.getAbsolutePath()));
                     listFiles(i.getPath());
-                    Index.pane.updateLabel(this.current,this.count);
                 } else {
                     if( isMp3(i.getPath())) {
                         fileTable.add(new MusicFile(i.getAbsolutePath()));
+                        Index.pane.updateLabel(this.current,this.count);
                         current++;
                     }
                 }

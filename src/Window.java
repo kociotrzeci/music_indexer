@@ -7,7 +7,6 @@ public class Window implements Runnable{
     JPanel general;
     private JButton browseButton;
     private JButton STARTButton;
-    private JButton SAVEButton;
     private JTable table1;
     private JTextField textField1;
     private ScanProgress pane;
