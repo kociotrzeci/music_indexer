@@ -11,8 +11,6 @@ public class Window implements Runnable{
     private JTextField textField1;
     private ScanProgress pane;
     JFileChooser chooser;
-    private Thread scanProgressThread;
-
     public Window() {
         browseButton.addActionListener(new ActionListener() {
             @Override
@@ -42,10 +40,9 @@ public class Window implements Runnable{
     }
     public void setTable(String[][] table)
     {
-        String[] heading = {"Directory","Bitrate","fa","dsd","sdfsd"};
+        String[] heading = {"Directory","Bitrate","Artist","Title","Album"};
         DefaultTableModel tempTab = new DefaultTableModel(table,heading);
         this.table1.setModel(tempTab);
-
     }
     public void setTextField1(String direcotry)
     {
@@ -54,7 +51,6 @@ public class Window implements Runnable{
     private void createUIComponents() {
         // TODO: place custom component creation code here
     }
-
     @Override
     public void run() {
         JFrame window = new JFrame();

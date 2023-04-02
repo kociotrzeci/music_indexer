@@ -15,7 +15,7 @@ public class Main {
                  InstantiationException e) {
             throw new RuntimeException(e);
         }
-        JFrame window = new JFrame();
+        JFrame window = new JFrame("Music Bitrate Indexer");
         pane = new Window();
         window.setContentPane(pane.general);
         window.setVisible(true);
@@ -32,14 +32,8 @@ public class Main {
         MusicFile[] listOfFiles = folder.getFileTable();
         String[][] table = new String[listOfFiles.length][listOfFiles[0].getString().length];
         MusicDirectory[] listOfDirectories = folder.getDirectoryTable();
-        System.out.println("------FILES-------");
         for (int i = 0; i < listOfFiles.length;i++) {
             table[i]= listOfFiles[i].getString();
-            System.out.println(Arrays.toString(table[i]));
-        }
-        System.out.println("------DIRECTORIES-------");
-        for (MusicDirectory i : listOfDirectories) {
-            System.out.println(i.getDirectory());
         }
         pane.setTable(table);
     }

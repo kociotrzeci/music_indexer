@@ -6,7 +6,7 @@ public class Index extends SwingWorker {
     static ScanProgress pane;
     public Index(String directory){
         this.directory = directory;
-        window = new JFrame();
+        window = new JFrame("Progress");
         pane = new ScanProgress();
         window.setContentPane(pane.general);
         window.setVisible(true);

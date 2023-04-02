@@ -16,17 +16,16 @@ public class MusicFile {
         this.prasedString = new String[5];
         if (file.hasId3v2Tag()) {
             tagV2 = file.getId3v2Tag();
-            this.prasedString[0] = tagV2.getArtist();
-            this.prasedString[1] = tagV2.getAlbum();
-            this.prasedString[2] = tagV2.getTitle();
-            this.prasedString[3] = directory;
+            this.prasedString[2] = tagV2.getArtist();
+            this.prasedString[3] = tagV2.getTitle();
+            this.prasedString[4] = tagV2.getAlbum();
         } else {
-            this.prasedString[0] = " ";
-            this.prasedString[1] = " ";
             this.prasedString[2] = " ";
             this.prasedString[3] = " ";
+            this.prasedString[4] = " ";
         }
-        this.prasedString[4] = Integer.toString(file.getBitrate());
+        this.prasedString[0] = directory;
+        this.prasedString[1] = Integer.toString(file.getBitrate());
     }
 }
 
